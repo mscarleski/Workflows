@@ -1,8 +1,8 @@
-__Task__
+**Task**
 
 Import contacts from CSV file to salesforce.com
 
-__Steps__
+**Steps**
 1. Read csv
 2. Record "Login to salesforce" activity
 3. Add a "For each row in datatable" activity
