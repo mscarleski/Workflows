@@ -1,7 +1,8 @@
 Task
 
 Extract FirstName and Sport columns from a table inside a Java App.
-The way to do this in Java is using FindAllChildren activity.
+
+The way to do this in Java is by using FindAllChildren activity.
 
 Steps  
 
