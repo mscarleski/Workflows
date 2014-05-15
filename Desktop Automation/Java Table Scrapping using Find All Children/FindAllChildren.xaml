@@ -1,0 +1,149 @@
+﻿<Activity mc:Ignorable="sads sap" x:Class="FindAllChildren" sap:VirtualizedContainerService.HintSize="654,676" mva:VisualBasic.Settings="Assembly references and imported namespaces for internal implementation"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=Microsoft.VisualBasic"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
+ xmlns:s1="clr-namespace:System;assembly=System"
+ xmlns:s2="clr-namespace:System;assembly=System.Core"
+ xmlns:s3="clr-namespace:System;assembly=System.ServiceModel"
+ xmlns:s4="clr-namespace:System;assembly=System.ComponentModel.Composition"
+ xmlns:sa="clr-namespace:System.Activities;assembly=System.Activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sd="clr-namespace:System.Data;assembly=System.Data"
+ xmlns:sd1="clr-namespace:System.Diagnostics;assembly=System"
+ xmlns:si="clr-namespace:System.IO;assembly=mscorlib"
+ xmlns:sl="clr-namespace:System.Linq;assembly=System.Core"
+ xmlns:sma="clr-namespace:System.Management.Automation;assembly=System.Management.Automation"
+ xmlns:snm="clr-namespace:System.Net.Mail;assembly=System"
+ xmlns:sx="clr-namespace:System.Xml;assembly=System.Xml"
+ xmlns:sxl="clr-namespace:System.Xml.Linq;assembly=System.Xml.Linq"
+ xmlns:sxs="clr-namespace:System.Xml.Serialization;assembly=System.Xml"
+ xmlns:ua="clr-namespace:UiPath.Activities;assembly=UiPath.Activities"
+ xmlns:ul="clr-namespace:UiPath.Library;assembly=UiPath.Library"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Flowchart sap:VirtualizedContainerService.HintSize="614,636">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+        <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+        <av:Size x:Key="ShapeSize">60,75</av:Size>
+        <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,134.02</av:PointCollection>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Flowchart.StartNode>
+      <FlowStep x:Name="__ReferenceID0">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">200,134.02</av:Point>
+            <av:Size x:Key="ShapeSize">200,51</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Sequence sap:VirtualizedContainerService.HintSize="410,1923">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="sd:DataTable" Name="dt" />
+            <Variable x:TypeArguments="x:Int32" Name="i" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence DisplayName="For Each Child of UI Element" sap:VirtualizedContainerService.HintSize="388,809" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="scg:IEnumerable(ul:UiElement)" Name="iEnumerableFindChildrenOf" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ua:FindChildrenOf ClippingRegion="{x:Null}" ContinueOnError="{x:Null}" DesignerSelector="{x:Null}" ElementPosition="{x:Null}" ExistingUiElement="{x:Null}" InformativeScreenshot="{x:Null}" TimeoutMS="{x:Null}" Children="[iEnumerableFindChildrenOf]" DisplayName="Find children of" Filter="&lt;java role='label' tableCol='0' /&gt;" sap:VirtualizedContainerService.HintSize="366,68" Scope="FIND_CHILDREN" Selector="&lt;wnd app='javaw.exe' cls='SunAwtFrame' title='Test app' /&gt;&lt;java role='table' /&gt;" WaitForReady="INTERACTIVE" />
+            <Assign sap:VirtualizedContainerService.HintSize="366,60">
+              <Assign.To>
+                <OutArgument x:TypeArguments="sd:DataTable">[dt]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="sd:DataTable">[new DataTable]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ua:AddDataColumn x:TypeArguments="x:Object" Column="{x:Null}" ContinueOnError="{x:Null}" DefaultValue="{x:Null}" DesignerSelector="{x:Null}" ElementPosition="{x:Null}" InformativeScreenshot="{x:Null}" AllowDBNull="True" AutoIncrement="False" ColumnName="First Name" DataTable="[dt]" DisplayName="Add data column" sap:VirtualizedContainerService.HintSize="366,22" MaxLength="100" Unique="False" />
+            <ua:AddDataColumn x:TypeArguments="x:Object" Column="{x:Null}" ContinueOnError="{x:Null}" DefaultValue="{x:Null}" DesignerSelector="{x:Null}" ElementPosition="{x:Null}" InformativeScreenshot="{x:Null}" AllowDBNull="True" AutoIncrement="False" ColumnName="Sport" DataTable="[dt]" DisplayName="Add data column" sap:VirtualizedContainerService.HintSize="366,22" MaxLength="100" Unique="False" />
+            <ua:ForEach x:TypeArguments="ul:UiElement" DisplayName="For each child" sap:VirtualizedContainerService.HintSize="366,353" Values="[iEnumerableFindChildrenOf]">
+              <ActivityAction x:TypeArguments="ul:UiElement">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="ul:UiElement" Name="child" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="336,245">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ua:WriteLine ContinueOnError="{x:Null}" DesignerSelector="{x:Null}" ElementPosition="{x:Null}" InformativeScreenshot="{x:Null}" DisplayName="Write line" sap:VirtualizedContainerService.HintSize="314,59" Text="[child.Get(&quot;text&quot;).ToString()]" />
+                  <ua:AddDataRow ContinueOnError="{x:Null}" DataRow="{x:Null}" DesignerSelector="{x:Null}" ElementPosition="{x:Null}" InformativeScreenshot="{x:Null}" ArrayRow="[{ child.Get(&quot;text&quot;).ToString(), Nothing }]" DataTable="[dt]" DisplayName="Add data row" sap:VirtualizedContainerService.HintSize="314,22" />
+                </Sequence>
+              </ActivityAction>
+            </ua:ForEach>
+          </Sequence>
+          <Assign sap:VirtualizedContainerService.HintSize="388,60">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Int32">[i]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Int32">0</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Sequence DisplayName="For Each Child of UI Element" sap:VirtualizedContainerService.HintSize="388,723" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="scg:IEnumerable(ul:UiElement)" Name="iEnumerableFindChildrenOf" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ua:FindChildrenOf ClippingRegion="{x:Null}" ContinueOnError="{x:Null}" DesignerSelector="{x:Null}" ElementPosition="{x:Null}" ExistingUiElement="{x:Null}" InformativeScreenshot="{x:Null}" TimeoutMS="{x:Null}" Children="[iEnumerableFindChildrenOf]" DisplayName="Find children of" Filter="&lt;java role='label' tableCol='2' /&gt;" sap:VirtualizedContainerService.HintSize="366,68" Scope="FIND_CHILDREN" Selector="&lt;wnd app='javaw.exe' cls='SunAwtFrame' title='Test app' /&gt;&lt;java role='table' /&gt;" WaitForReady="INTERACTIVE" />
+            <ua:ForEach x:TypeArguments="ul:UiElement" DisplayName="For each child" sap:VirtualizedContainerService.HintSize="366,491" Values="[iEnumerableFindChildrenOf]">
+              <ActivityAction x:TypeArguments="ul:UiElement">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="ul:UiElement" Name="child" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="336,383">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ua:WriteLine ContinueOnError="{x:Null}" DesignerSelector="{x:Null}" ElementPosition="{x:Null}" InformativeScreenshot="{x:Null}" DisplayName="Write line" sap:VirtualizedContainerService.HintSize="314,59" Text="[child.Get(&quot;text&quot;).ToString()]" />
+                  <Assign sap:VirtualizedContainerService.HintSize="314,60">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Object">[dt.Rows(i)(1)]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Object">[child.Get("text").ToString()]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="314,60">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[i]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[i + 1]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </ActivityAction>
+            </ua:ForEach>
+          </Sequence>
+          <ua:WriteCsvFile ContinueOnError="{x:Null}" DesignerSelector="{x:Null}" ElementPosition="{x:Null}" InformativeScreenshot="{x:Null}" AddHeaders="True" DataTable="[dt]" Delimitator="Comma" DisplayName="Write csv file" FilePath="first-name.csv" sap:VirtualizedContainerService.HintSize="388,87" />
+        </Sequence>
+      </FlowStep>
+    </Flowchart.StartNode>
+    <x:Reference>__ReferenceID0</x:Reference>
+  </Flowchart>
+</Activity>
