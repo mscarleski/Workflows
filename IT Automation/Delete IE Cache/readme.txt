@@ -1,0 +1,1 @@
+This sample deletes all your browsing history
