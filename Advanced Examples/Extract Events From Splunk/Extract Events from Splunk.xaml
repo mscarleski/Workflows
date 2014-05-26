@@ -78,14 +78,14 @@
             <av:Size x:Key="ShapeSize">200,51</av:Size>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <TryCatch sap:VirtualizedContainerService.HintSize="418,287">
+        <TryCatch sap:VirtualizedContainerService.HintSize="414,460">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <TryCatch.Try>
-            <Flowchart sap:VirtualizedContainerService.HintSize="614,636">
+            <Flowchart sap:VirtualizedContainerService.HintSize="200,51">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -335,7 +335,7 @@
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ua:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" DesignerSelector="{x:Null}" ElementPosition="{x:Null}" From="{x:Null}" InformativeScreenshot="{x:Null}" Name="{x:Null}" TimeoutMS="{x:Null}" Body="[msgEventsFound+txtToSend]" DisplayName="Send Email " Email="[emailFrom]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="314,145" IsBodyHtml="False" OutgoingServer="smtp.gmail.com" Password="_;ha;alk;1_" Port="587" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces" Subject="[subjEventsFound]" To="[emailTo]">
+                                        <ua:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" DesignerSelector="{x:Null}" ElementPosition="{x:Null}" From="{x:Null}" InformativeScreenshot="{x:Null}" Name="{x:Null}" Password="{x:Null}" TimeoutMS="{x:Null}" Body="[msgEventsFound+txtToSend]" DisplayName="Send Email " Email="[emailFrom]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="314,145" IsBodyHtml="False" OutgoingServer="smtp.gmail.com" Port="587" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces" Subject="[subjEventsFound]" To="[emailTo]">
                                           <ua:SendMail.Attachments>
                                             <scg:List x:TypeArguments="x:String" Capacity="0" />
                                           </ua:SendMail.Attachments>
@@ -355,7 +355,7 @@
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ua:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" DesignerSelector="{x:Null}" ElementPosition="{x:Null}" From="{x:Null}" InformativeScreenshot="{x:Null}" Name="{x:Null}" TimeoutMS="{x:Null}" Body="[msgEventsNotFound]" DisplayName="Send  No Results Email" Email="[emailFrom]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="314,145" IsBodyHtml="False" OutgoingServer="smtp.gmail.com" Password="_;ha;alk;1_" Port="587" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces" Subject="[subjEventsNotFound]" To="[emailTo]">
+                                        <ua:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" DesignerSelector="{x:Null}" ElementPosition="{x:Null}" From="{x:Null}" InformativeScreenshot="{x:Null}" Name="{x:Null}" Password="{x:Null}" TimeoutMS="{x:Null}" Body="[msgEventsNotFound]" DisplayName="Send  No Results Email" Email="[emailFrom]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="314,145" IsBodyHtml="False" OutgoingServer="smtp.gmail.com" Port="587" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces" Subject="[subjEventsNotFound]" To="[emailTo]">
                                           <ua:SendMail.Attachments>
                                             <scg:List x:TypeArguments="x:String" Capacity="0" />
                                           </ua:SendMail.Attachments>
@@ -386,10 +386,10 @@
             </Flowchart>
           </TryCatch.Try>
           <TryCatch.Catches>
-            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21">
+            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,298">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
