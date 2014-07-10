@@ -44,8 +44,8 @@
       <Variable x:TypeArguments="x:Boolean" Name="bShowMoreExists" />
       <Variable x:TypeArguments="x:String" Default="https://uipath.atlassian.net/wiki/display/SDK/UiPath+SDK" Name="atlassianUrl" />
       <Variable x:TypeArguments="x:String" Default="https://github.com/Deskover/UiPath/wiki" Name="gitUrl" />
-      <Variable x:TypeArguments="x:String" Default="par0la" Name="atlassianPass" />
-      <Variable x:TypeArguments="x:String" Default="mihai.badita" Name="atlassianUser" />
+      <Variable x:TypeArguments="x:String" Default="your username password here" Name="atlassianPass" />
+      <Variable x:TypeArguments="x:String" Default="your atlassian username here" Name="atlassianUser" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -94,7 +94,7 @@
                     <ul:Region Rectangle="896, 225, 230, 570" />
                   </ua:ExtractData.ElementPosition>
                 </ua:ExtractData>
-                <ua:WriteCsvFile ContinueOnError="{x:Null}" DesignerSelector="{x:Null}" ElementPosition="{x:Null}" InformativeScreenshot="{x:Null}" AddHeaders="True" DataTable="[dtGitPages]" Delimitator="Comma" FilePath="ExtractDataResults.csv" sap:VirtualizedContainerService.HintSize="314,87" />
+                <ua:WriteCsvFile ContinueOnError="{x:Null}" DesignerSelector="{x:Null}" ElementPosition="{x:Null}" InformativeScreenshot="{x:Null}" AddHeaders="True" DataTable="[dtGitPages]" Delimitator="Comma" FilePath="gitPages.csv" sap:VirtualizedContainerService.HintSize="314,87" />
                 <ua:Click ClippingRegion="{x:Null}" ContinueOnError="{x:Null}" DelayMS="{x:Null}" DesignerSelector="{x:Null}" ExistingUiElement="{x:Null}" TimeoutMS="{x:Null}" UseElement="{x:Null}" Alt="False" ClickMethod="SYNTHESIZE_INPUT" ClickType="CLICK_SINGLE" Ctrl="False" DisplayName="Click span" sap:VirtualizedContainerService.HintSize="314,106" InformativeScreenshot="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" MouseButton="BTN_LEFT" OffsetX="0" OffsetY="0" Position="TopLeft" Selector="&lt;webctrl idx='1' parentid='wiki-rightbar' tag='SPAN' /&gt;" Shift="False" WaitForReady="INTERACTIVE" Win="False">
                   <ua:Click.ElementPosition>
                     <ul:Region Rectangle="721, 235, 12, 16" />
@@ -191,7 +191,7 @@
                           <ul:Region Rectangle="20, 0, 695, 636" />
                         </ua:ExtractData.ElementPosition>
                       </ua:ExtractData>
-                      <ua:WriteCsvFile ContinueOnError="{x:Null}" DesignerSelector="{x:Null}" ElementPosition="{x:Null}" InformativeScreenshot="{x:Null}" AddHeaders="True" DataTable="[dtConfluencePages]" Delimitator="Comma" FilePath="ExtractDataResults1.csv" sap:VirtualizedContainerService.HintSize="314,87" />
+                      <ua:WriteCsvFile ContinueOnError="{x:Null}" DesignerSelector="{x:Null}" ElementPosition="{x:Null}" InformativeScreenshot="{x:Null}" AddHeaders="True" DataTable="[dtConfluencePages]" Delimitator="Comma" FilePath="ExistingAtlassianPages.csv" sap:VirtualizedContainerService.HintSize="314,87" />
                     </Sequence>
                   </Sequence>
                 </Sequence>
