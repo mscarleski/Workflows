@@ -25,14 +25,12 @@
  xmlns:sxl="clr-namespace:System.Xml.Linq;assembly=System.Xml.Linq"
  xmlns:ua="clr-namespace:UiPath.Activities;assembly=UiPath.Activities"
  xmlns:ul="clr-namespace:UiPath.Library;assembly=UiPath.Library"
- xmlns:wt="clr-namespace:WFExtended.Twitter;assembly=WFExtended.Twitter"
  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <Flowchart DisplayName="Main" sap:VirtualizedContainerService.HintSize="658,636">
     <Flowchart.Variables>
       <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="output" />
-      <Variable x:TypeArguments="x:String" Name="stringMessageBox1" />
-      <Variable x:TypeArguments="wt:DirectMessage" Name="directMessageSendDirectMessage2" />
-      <Variable x:TypeArguments="ul:Window" Name="windowOpenApplication3" />
+      <Variable x:TypeArguments="x:String" Name="stringMessageBox1" />      
+	  <Variable x:TypeArguments="ul:Window" Name="windowOpenApplication3" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
