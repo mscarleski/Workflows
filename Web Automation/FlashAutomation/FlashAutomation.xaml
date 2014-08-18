@@ -48,7 +48,7 @@
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">200,144.5</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">300,195.5 300,224.5</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">300,195.5 300,214.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <ua:ReadCsvFile ContinueOnError="{x:Null}" DesignerSelector="{x:Null}" ElementPosition="{x:Null}" InformativeScreenshot="{x:Null}" DataTable="[dtContacts]" Delimitator="Semicolon" DisplayName="Read CSV" FilePath="Addresses.csv" sap:VirtualizedContainerService.HintSize="200,51">
@@ -62,9 +62,9 @@
           <FlowStep x:Name="__ReferenceID1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <av:Point x:Key="ShapeLocation">200,224.5</av:Point>
+                <av:Point x:Key="ShapeLocation">200,214.5</av:Point>
                 <av:Size x:Key="ShapeSize">200,51</av:Size>
-                <av:PointCollection x:Key="ConnectorLocation">300,275.5 300,324.5</av:PointCollection>
+                <av:PointCollection x:Key="ConnectorLocation">300,265.5 300,304.5</av:PointCollection>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <Sequence DisplayName="Recording Sequence2" sap:VirtualizedContainerService.HintSize="200,51">
@@ -84,7 +84,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Delay DisplayName="Delay 4 seconds" Duration="00:00:04" sap:VirtualizedContainerService.HintSize="366,22" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces" />
+                    <Delay DisplayName="Delay 8 seconds" Duration="00:00:08" sap:VirtualizedContainerService.HintSize="366,22" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces" />
                     <ua:Click ClippingRegion="{x:Null}" ContinueOnError="{x:Null}" ExistingUiElement="{x:Null}" TimeoutMS="{x:Null}" UseElement="{x:Null}" Alt="False" ClickMethod="SYNTHESIZE_INPUT" ClickType="CLICK_SINGLE" Ctrl="False" DelayMS="300" DesignerSelector="&lt;html url='http://69.166.140.73/zonelocatoreconomic/' /&gt;&lt;ctrl name='Begin' role='push button' /&gt;" DisplayName="Click 'Begin' button" sap:VirtualizedContainerService.HintSize="366,106" InformativeScreenshot="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" MouseButton="BTN_LEFT" OffsetX="30" OffsetY="9" Position="TopLeft" Selector="&lt;ctrl name='Begin' role='push button' /&gt;" Shift="False" WaitForReady="INTERACTIVE" Win="False">
                       <ua:Click.ElementPosition>
                         <ul:Region Rectangle="562, 649, 72, 23" />
@@ -161,58 +161,17 @@
               <FlowStep x:Name="__ReferenceID2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <av:Point x:Key="ShapeLocation">200,324.5</av:Point>
+                    <av:Point x:Key="ShapeLocation">200,304.5</av:Point>
                     <av:Size x:Key="ShapeSize">200,51</av:Size>
-                    <av:PointCollection x:Key="ConnectorLocation">300,375.5 300,424.5</av:PointCollection>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ua:ForEach x:TypeArguments="sd:DataRow" DisplayName="For Each Row in DataTable" sap:VirtualizedContainerService.HintSize="200,51" Values="[dtContacts.Rows]">
+                <ua:WriteCsvFile ContinueOnError="{x:Null}" DesignerSelector="{x:Null}" ElementPosition="{x:Null}" InformativeScreenshot="{x:Null}" AddHeaders="True" DataTable="[dtContacts]" Delimitator="Semicolon" DisplayName="Write CSV" FilePath="Addresses.csv" sap:VirtualizedContainerService.HintSize="200,51">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ActivityAction x:TypeArguments="sd:DataRow">
-                    <ActivityAction.Argument>
-                      <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
-                    </ActivityAction.Argument>
-                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="264,184">
-                      <Sequence.Variables>
-                        <Variable x:TypeArguments="x:String" Name="output" />
-                      </Sequence.Variables>
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <Assign sap:VirtualizedContainerService.HintSize="242,60">
-                        <Assign.To>
-                          <OutArgument x:TypeArguments="x:Object">[row(1)]</OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="x:Object">[zone]</InArgument>
-                        </Assign.Value>
-                      </Assign>
-                    </Sequence>
-                  </ActivityAction>
-                </ua:ForEach>
-                <FlowStep.Next>
-                  <FlowStep x:Name="__ReferenceID3">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <av:Point x:Key="ShapeLocation">200,424.5</av:Point>
-                        <av:Size x:Key="ShapeSize">200,51</av:Size>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <ua:WriteCsvFile ContinueOnError="{x:Null}" DesignerSelector="{x:Null}" ElementPosition="{x:Null}" InformativeScreenshot="{x:Null}" AddHeaders="True" DataTable="[dtContacts]" Delimitator="Semicolon" DisplayName="Write CSV" FilePath="Addresses.csv" sap:VirtualizedContainerService.HintSize="200,51">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                    </ua:WriteCsvFile>
-                  </FlowStep>
-                </FlowStep.Next>
+                </ua:WriteCsvFile>
               </FlowStep>
             </FlowStep.Next>
           </FlowStep>
@@ -222,6 +181,5 @@
     <x:Reference>__ReferenceID0</x:Reference>
     <x:Reference>__ReferenceID1</x:Reference>
     <x:Reference>__ReferenceID2</x:Reference>
-    <x:Reference>__ReferenceID3</x:Reference>
   </Flowchart>
 </Activity>
