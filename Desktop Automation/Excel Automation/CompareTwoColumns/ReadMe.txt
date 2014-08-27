@@ -17,5 +17,3 @@ Steps:
 4. If the previos condition is not tre we need another "if" to determin wich number is greater.
 
 5. In the Main we need a variable that increases at each step.
-
-Attention: This program works with only 8 values per column. Don't put more or less.
