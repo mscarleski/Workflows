@@ -1,0 +1,345 @@
+﻿<Activity mc:Ignorable="sads sap" x:Class="CreateAccount" sap:VirtualizedContainerService.HintSize="654,676" mva:VisualBasic.Settings="Assembly references and imported namespaces for internal implementation"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=Microsoft.VisualBasic"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:mvc="clr-namespace:Microsoft.VisualBasic.CompilerServices;assembly=Microsoft.VisualBasic"
+ xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
+ xmlns:s1="clr-namespace:System;assembly=System"
+ xmlns:s2="clr-namespace:System;assembly=System.Core"
+ xmlns:s3="clr-namespace:System;assembly=System.ServiceModel"
+ xmlns:s4="clr-namespace:System;assembly=System.ComponentModel.Composition"
+ xmlns:sa="clr-namespace:System.Activities;assembly=System.Activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sd="clr-namespace:System.Data;assembly=System.Data"
+ xmlns:sd1="clr-namespace:System.Diagnostics;assembly=System"
+ xmlns:si="clr-namespace:System.IO;assembly=mscorlib"
+ xmlns:sl="clr-namespace:System.Linq;assembly=System.Core"
+ xmlns:sma="clr-namespace:System.Management.Automation;assembly=System.Management.Automation"
+ xmlns:snm="clr-namespace:System.Net.Mail;assembly=System"
+ xmlns:sx="clr-namespace:System.Xml;assembly=System.Xml"
+ xmlns:sxl="clr-namespace:System.Xml.Linq;assembly=System.Xml.Linq"
+ xmlns:ua="clr-namespace:UiPath.Activities;assembly=UiPath.Activities"
+ xmlns:ul="clr-namespace:UiPath.Library;assembly=UiPath.Library"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Flowchart DisplayName="Main" sap:VirtualizedContainerService.HintSize="614,636">
+    <Flowchart.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dataTableReadCellsRange1" />
+    </Flowchart.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+        <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+        <av:Size x:Key="ShapeSize">60,75</av:Size>
+        <av:PointCollection x:Key="ConnectorLocation">270,40 270,284.5</av:PointCollection>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Flowchart.StartNode>
+      <FlowStep x:Name="__ReferenceID0">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">170,284.5</av:Point>
+            <av:Size x:Key="ShapeSize">200,51</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Sequence DisplayName="Recording Sequence" sap:VirtualizedContainerService.HintSize="763,3357">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="ul:Browser" Name="Signup" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ua:Comment sap:VirtualizedContainerService.HintSize="741,188" Text="// Read all data from the excel file starting from cell A1. Because the IncludeColumnNames property from Read Cell Range  activity is set to true, the first row is considered to represent the column headers definitions for the DataTable.  This should return a DataTable with 2 rows and 6 columns." />
+          <ua:ReadCellsRange ContinueOnError="{x:Null}" DesignerSelector="{x:Null}" ElementPosition="{x:Null}" ExistingWorkbook="{x:Null}" InformativeScreenshot="{x:Null}" Password="{x:Null}" DataTable="[dataTableReadCellsRange1]" DisplayName="Read Cell Range" sap:VirtualizedContainerService.HintSize="741,87" IncludeColumnNames="True" Range="A1" SheetName="Sheet1" WorkbookPath="AccountInfo.xlsx" />
+          <ua:Comment sap:VirtualizedContainerService.HintSize="741,74" Text="// for each row in the DataTable open the web page and enter the information" />
+          <ua:ForEachRow DataTable="[dataTableReadCellsRange1]" DisplayName="For each row" sap:VirtualizedContainerService.HintSize="741,2764">
+            <ua:ForEachRow.Body>
+              <ActivityAction x:TypeArguments="sd:DataRow">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="711,2656">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ua:OpenBrowser ContinueOnError="{x:Null}" ElementPosition="{x:Null}" InformativeScreenshot="{x:Null}" BrowserType="IE" DesignerSelector="&lt;html title='Sign up - Microsoft account' /&gt;" DisplayName="Open https://signup.live.com/signup.aspx?lic=1" Headless="False" sap:VirtualizedContainerService.HintSize="689,2532" NewSession="True" Private="False" UiBrowser="[Signup]" Url="https://signup.live.com/signup.aspx?lic=1" WaitForReady="COMPLETE">
+                    <ua:OpenBrowser.Body>
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="675,2463">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ua:Comment sap:VirtualizedContainerService.HintSize="653,284" Text="// Enter the first name.  The first name is on the first column so it is the first value in the row (row(0)). Indexes start from 0 not 1. The last name value is row(1) (second column), the user name is row(2) (third column), the password is row(3) (forth column), etc.&#xD;&#xA;&#xD;&#xA;Another way to acces the data from a row is to use row(&quot;column name&quot;), where column name represents the name of the column whose data you want. In this case row(&quot;First Name&quot;) for the first name, row(&quot;Last Name&quot;) for the last name, etc." />
+                        <ua:TypeInto ClippingRegion="{x:Null}" ContinueOnError="{x:Null}" DelayBetweenKeys="{x:Null}" ExistingUiElement="{x:Null}" TimeoutMS="{x:Null}" UseElement="{x:Null}" Activate="True" ClickBeforeTyping="False" DelayMS="300" DesignerSelector="&lt;html title='Sign up - Microsoft account' /&gt;&lt;webctrl id='iFirstName' tag='INPUT' /&gt;" DisplayName="Type into 'Name' field" EmptyField="False" sap:VirtualizedContainerService.HintSize="653,134" InformativeScreenshot="iVBORw0KGgoAAAANSUhEUgAAAYAAAABSCAYAAABdRgMvAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVgSURBVHhe7drdceI8FAZg+nI/uaYDyuCCFqhgL5ihjQy96LP8h+yw3y4JTs5azzOjGSwbJRms88oKuwRAlQQAQKUEAEClBABApQQAQKUEAEClBABApQQAQKUEAEClBEA0l33a7Zp0ug3Hg9upSfvLcADwAgIgmjYAmqZJu+aUygwQAMCrCYBo8hNAW+kv+92s4AsA4NUEQDRDALQVPzW7fRpr/iwAum2i3dCK7aIiPLpz0zj9cVPuKxX9u+LnAPUQANGMAdDKRb98PQVAqbh+DIb+8JZOTVvcx62kMlDy63KLqRwDqIYAiGZWjHMR71f48wAYivu4gh+L+aKQz7eRLmk/BsAQFLO2+J8DsH0CIJrlajwft8X5MgVAX/ynS8rV/DMBUP4MoEoCIJoHxTkX8vzNoL47F/L7vn+3TfRsAHTbQR+/agrURQBE82h1PvzDduzuiv6wddPs89dGnwyALF87bv/kcaQBVEcAAFRKAABUSgAAVEoAAFRKAABUSgAAVEoARLJrPw5N23ojDJ9GJI8mi6Ztrb3Qr1+/tC+0134afM0KEwTCWCkA+DzVJhIBwJYJgHBUm0gEAFsmAMJRbSIRAGyZAAhHtYlEALBlAiAc1SYSAcCWCYBwVJtIBABbJgDCUW0iEQBsmQAIR7WJRACwZQIgHNUmEgHAlgmAcFSbSAQAWyYAwlFtIvnbCfJ+Toe3t/RWtsM5vbenrsf29fHaXweR/FQAdPPlmMyKjwRAJE8FwKtv6Pd0Prwl2cFqthIA1+O04PrXCYBIBABbJgDCEQCRvCAA3s+HYgvomo5vh3Q+tzds3ibq+vtCP20ddX35uqLv5eECrYgB0J0r7v1yBbQ4l09186voO5z/7RgQAJGsEgDzm3p+vr3iOr72BMDKAgbAe7s4mmp4d127YOqOl/Ph2s6V8aUnANbwVADcVyHlSuThE0Bxp3bnH968AoCVBQyAuXIO9K8frvAFAKt4KgD+9glgHgBZd00XHOUYAoCVhQyA5fZnOQf6OdH1lxNDALCKbwqASb6Rp3EEACsLFwDL+fH7OTD7erUAYBXfEADXY/G+2TgCgJVFC4Blf3c8zoF27hSTYTavBACr+IYAuG//5LZ4OuieCHL/47HhS340AMZ7fmz9Pd6t7Me+wzEdp0VQsf3TnSsL/v2cbwHxOitMEAjjpwKA31JtIhEAbJkACEe1iUQAsGUCIBzVJhIBwJYJgHBUm0gEAFsmAMJRbSIRAGyZAAhHtYlEALBlAiAc1SYSAcCWCYBwVJtIBABbJgDCUW0iGSeIpm25vVAOAO3z7bWfBl/zaLJo2tYaYfg0AColAAAqJQAAKiUAAColAAAqJQAAKiUAAColAAAqJQAAKiUAAColAAAqJQAAKiUAAColAAAqJQCCuZ2a1Jxuw9Hgsk+7/WU4AHgNARCMAAC+iwAIRgAA30UABPPnALik/W6Xdl1r0nRpvmbsb06p776lU9Nec+rPfciQYdzLfhxv344+KMdb/pzyPXnQ2yk1w7Wz373on40NhCAAgvlTAPzNE8L9mhwAQ5F+ZCjy4+lc1D+MnZXjz94zjD8GTlfwh0KfX09B1Fr8jsDPEwDB/LHAL4p2lt/Tr7KL1l0wPAE8qOmdZVGeHQ/FfRxvLOaL9+TQuB/mp5MhAIbfc9bKQAB+nACIZlmUswd9/RZMX9wfhkbnswHQF//pVLmaX7znfwOgHBsIRwBE022jlEW73/N/VEunwp+L7cM99s8GQP6Z9/d1TxjPBsCHvwOIRgBE1BX0+9ZJubqfbfcUWyrLbaC+KH9+C6gcr9nvn38CyP7n7wB+ngAAqFJK/wGfuKWEqWgXawAAAABJRU5ErkJggg==" Selector="&lt;webctrl id='iFirstName' tag='INPUT' /&gt;" Text="[row(0).ToString]" TypeMethod="API" WaitForReady="COMPLETE">
+                          <ua:TypeInto.ElementPosition>
+                            <ul:Region Rectangle="116, 228, 184, 32" />
+                          </ua:TypeInto.ElementPosition>
+                        </ua:TypeInto>
+                        <ua:TypeInto ClippingRegion="{x:Null}" ContinueOnError="{x:Null}" DelayBetweenKeys="{x:Null}" ExistingUiElement="{x:Null}" TimeoutMS="{x:Null}" UseElement="{x:Null}" Activate="True" ClickBeforeTyping="False" DelayMS="300" DesignerSelector="&lt;html title='Sign up - Microsoft account' /&gt;&lt;webctrl id='iLastName' tag='INPUT' /&gt;" DisplayName="Type into 'Name' field" EmptyField="False" sap:VirtualizedContainerService.HintSize="653,134" InformativeScreenshot="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" Selector="&lt;webctrl id='iLastName' tag='INPUT' /&gt;" Text="[row(&quot;Last Name&quot;).ToString]" TypeMethod="API" WaitForReady="COMPLETE">
+                          <ua:TypeInto.ElementPosition>
+                            <ul:Region Rectangle="320, 228, 184, 32" />
+                          </ua:TypeInto.ElementPosition>
+                        </ua:TypeInto>
+                        <ua:TypeInto ClippingRegion="{x:Null}" ContinueOnError="{x:Null}" DelayBetweenKeys="{x:Null}" ExistingUiElement="{x:Null}" TimeoutMS="{x:Null}" UseElement="{x:Null}" Activate="True" ClickBeforeTyping="False" DelayMS="300" DesignerSelector="&lt;html title='Sign up - Microsoft account' /&gt;&lt;webctrl id='imembernameeasi' tag='INPUT' /&gt;" DisplayName="Type into 'User name' email" EmptyField="False" sap:VirtualizedContainerService.HintSize="653,134" InformativeScreenshot="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" Selector="&lt;webctrl id='imembernameeasi' tag='INPUT' /&gt;" Text="[row(2).ToString]" TypeMethod="API" WaitForReady="COMPLETE">
+                          <ua:TypeInto.ElementPosition>
+                            <ul:Region Rectangle="116, 292, 390, 32" />
+                          </ua:TypeInto.ElementPosition>
+                        </ua:TypeInto>
+                        <ua:TypeInto ClippingRegion="{x:Null}" ContinueOnError="{x:Null}" DelayBetweenKeys="{x:Null}" ExistingUiElement="{x:Null}" TimeoutMS="{x:Null}" UseElement="{x:Null}" Activate="True" ClickBeforeTyping="False" DelayMS="2449" DesignerSelector="&lt;html title='Sign up - Microsoft account' /&gt;&lt;webctrl id='iPwd' tag='INPUT' /&gt;" DisplayName="Type into 'Create pass...' field" EmptyField="False" sap:VirtualizedContainerService.HintSize="653,134" InformativeScreenshot="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" Selector="&lt;webctrl id='iPwd' tag='INPUT' /&gt;" Text="[row(&quot;Password&quot;).ToString]" TypeMethod="API" WaitForReady="COMPLETE">
+                          <ua:TypeInto.ElementPosition>
+                            <ul:Region Rectangle="116, 385, 390, 32" />
+                          </ua:TypeInto.ElementPosition>
+                        </ua:TypeInto>
+                        <ua:TypeInto ClippingRegion="{x:Null}" ContinueOnError="{x:Null}" DelayBetweenKeys="{x:Null}" ExistingUiElement="{x:Null}" TimeoutMS="{x:Null}" UseElement="{x:Null}" Activate="True" ClickBeforeTyping="False" DelayMS="300" DesignerSelector="&lt;html title='Sign up - Microsoft account' /&gt;&lt;webctrl id='iRetypePwd' tag='INPUT' /&gt;" DisplayName="Type into 'Reenter pas...' field" EmptyField="False" sap:VirtualizedContainerService.HintSize="653,134" InformativeScreenshot="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" Selector="&lt;webctrl id='iRetypePwd' tag='INPUT' /&gt;" Text="[row(3).ToString]" TypeMethod="API" WaitForReady="COMPLETE">
+                          <ua:TypeInto.ElementPosition>
+                            <ul:Region Rectangle="116, 525, 390, 32" />
+                          </ua:TypeInto.ElementPosition>
+                        </ua:TypeInto>
+                        <ua:TypeInto ClippingRegion="{x:Null}" ContinueOnError="{x:Null}" DelayBetweenKeys="{x:Null}" ExistingUiElement="{x:Null}" TimeoutMS="{x:Null}" UseElement="{x:Null}" Activate="True" ClickBeforeTyping="False" DelayMS="300" DesignerSelector="&lt;html title='Sign up - Microsoft account' /&gt;&lt;webctrl id='iZipCode' tag='INPUT' /&gt;" DisplayName="Type into 'Postal Code' field" EmptyField="False" sap:VirtualizedContainerService.HintSize="653,134" InformativeScreenshot="iVBORw0KGgoAAAANSUhEUgAAAesAAABNCAYAAACGwUzmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGdSURBVHhe7dWxDcNAAAMx77/0J6kcGR7gChLQBCruOgBAmlgDQJxYA0CcWANAnFgDQJxYA0CcWANAnFgDQJxYA0CcWANAnFgDQJxYA0CcWANAnFgDQJxYA0CcWANAnFgDQJxYA0CcWANA3HWub6/NzMyeI0OszczsfWTcsQaAH13IEWsAli7kiDUASxdyxBqApQs5Yg3A0oUcsQZg6UKOWAOwdCFHrAFYupAj1gAsXcgRawCWLuSINQBLF3LEGoClCzliDcDShRyxBmDpQo5YA7B0IUesAVi6kCPWACxdyBFrAJYu5Ig1AEsXcsQagKULOWINwNKFHLEGYOlCjlgDsHQhR6wBWLqQI9YALF3IEWsAli7kiDUASxdyxBqApQs5Yg3A0oUcsQZg6ULOHWszM7P/kSHWZmb2PjK8AQBxYg0AcWINAHFiDQBxYg0AcWINAHFiDQBxYg0AcWINAHFiDQBxYg0AcWINAHFiDQBxYg0AcWINAHFiDQBxYg0AcWINAHFiDQBxYg0AcWINAHFiDQBxYg0AcWINAGnnfADom2wmho/IQQAAAABJRU5ErkJggg==" Selector="&lt;webctrl id='iZipCode' tag='INPUT' /&gt;" Text="[row(4).ToString]" TypeMethod="API" WaitForReady="COMPLETE">
+                          <ua:TypeInto.ElementPosition>
+                            <ul:Region Rectangle="1, 20, 390, 32" />
+                          </ua:TypeInto.ElementPosition>
+                        </ua:TypeInto>
+                        <ua:SelectItem ClippingRegion="{x:Null}" ContinueOnError="{x:Null}" ExistingUiElement="{x:Null}" TimeoutMS="{x:Null}" UseElement="{x:Null}" DesignerSelector="&lt;html title='Sign up - Microsoft account' /&gt;&lt;webctrl id='iBirthMonth' tag='SELECT' /&gt;" DisplayName="Select item 'Birth month'" sap:VirtualizedContainerService.HintSize="653,134" InformativeScreenshot="iVBORw0KGgoAAAANSUhEUgAAAQUAAABSCAYAAABdasFqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFkSURBVHhe7dSxDcMADMRA77+0ky7hBPriDtAEevB5Af6IAhCiAIQoACEKQIgCEKIAhCgAIQpAiAIQogCEKAAhCkCIAhCiAIQoACEKQIgCEKIAhCgAIQpAiAIQogCEKADxvM+3C85dHzNEwW0cM35RgAv2N0cUuGV/c0SBW/Y3RxS4ZX9zRIFb9jdHFLhlf3NEgVv2N0cUuGV/c0SBW/Y3RxS4ZX9zRIFb9jdHFLhlf3NEgVv2N0cUuGV/c0SBW/Y3RxS4ZX9zRIFb9jdHFLhlf3NEgVv2N0cUuGV/c0SBW/Y3RxS4ZX9zRIFb9jdHFLhlf3NEgVv2N0cUuGV/c0SBW/Y3RxS4ZX9zRIFb9jdHFLhlf3N+UXDu8pghCm7jmOEbQIgCEKIAhCgAIQpAiAIQogCEKAAhCkCIAhCiAIQoACEKQIgCEKIAhCgAIQpAiAIQogCEKAAhCkCIAhCiAIQoAH/e9wP2VjLCUYifugAAAABJRU5ErkJggg==" Item="August" Selector="&lt;webctrl id='iBirthMonth' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
+                          <ua:SelectItem.ElementPosition>
+                            <ul:Region Rectangle="1, 83, 160, 32" />
+                          </ua:SelectItem.ElementPosition>
+                          <ua:SelectItem.Items>
+                            <scg:List x:TypeArguments="x:String" Capacity="13">
+                              <x:String>Month</x:String>
+                              <x:String>January</x:String>
+                              <x:String>February</x:String>
+                              <x:String>March</x:String>
+                              <x:String>April</x:String>
+                              <x:String>May</x:String>
+                              <x:String>June</x:String>
+                              <x:String>July</x:String>
+                              <x:String>August</x:String>
+                              <x:String>September</x:String>
+                              <x:String>October</x:String>
+                              <x:String>November</x:String>
+                              <x:String>December</x:String>
+                            </scg:List>
+                          </ua:SelectItem.Items>
+                        </ua:SelectItem>
+                        <ua:SelectItem ClippingRegion="{x:Null}" ContinueOnError="{x:Null}" ExistingUiElement="{x:Null}" TimeoutMS="{x:Null}" UseElement="{x:Null}" DesignerSelector="&lt;html title='Sign up - Microsoft account' /&gt;&lt;webctrl id='iBirthDay' tag='SELECT' /&gt;" DisplayName="Select item 'Birth day' " sap:VirtualizedContainerService.HintSize="653,134" InformativeScreenshot="iVBORw0KGgoAAAANSUhEUgAAAScAAABSCAYAAAAWwhKHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG/SURBVHhe7dSxDYBAEANB+m/6ISEjxhvMSNfAWfZ1AIKME5BknIAk4wQkGScgyTgBScYJSDJOQJJxApKME5BknIAk4wQkGScgyTgBScYJSDJOQJJxApKME5BknIAk4wQkGScgyTgBScYJSDJOQJJxKrmeONz2yJBGyVdZ3L9HhjRKFGTH73OkUaIgO36fI40SBdnx+xxplCjIjt/nSKNEQXb8PkcaJQqy4/c50ihRkB2/z5FGiYLs+H2ONEoUZMfvc6RRoiA7fp8jjRIF2fH7HGmUKMiO3+dIo0RBdvw+RxolCrLj9znSKFGQHb/PkUaJguz4fY40ShRkx+9zpFGiIDt+nyONEgXZ8fscaZQoyI7f50ijREF2/D5HGiUKsuP3OdIoUZAdv8+RRomC7Ph9jjRKFGTH73OkUaIgO36fI40SBdnx+xxplCjIjt/nSKNEQXb8PkcaJQqy4/c50ih5C+J2R4Y0Sr7K4v49MqQBJBknIMk4AUnGCUgyTkCScQKSjBOQZJyAJOMEJBknIMk4AUnGCUgyTkCScQKSjBOQZJyAJOMEJBknIMk4AUnGCUgyTkCScQKSjBOQZJyAoHNuGj2fzaVX22cAAAAASUVORK5CYII=" Item="9" Selector="&lt;webctrl id='iBirthDay' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
+                          <ua:SelectItem.ElementPosition>
+                            <ul:Region Rectangle="181, 83, 95, 32" />
+                          </ua:SelectItem.ElementPosition>
+                          <ua:SelectItem.Items>
+                            <scg:List x:TypeArguments="x:String" Capacity="32">
+                              <x:String>Day</x:String>
+                              <x:String>1</x:String>
+                              <x:String>2</x:String>
+                              <x:String>3</x:String>
+                              <x:String>4</x:String>
+                              <x:String>5</x:String>
+                              <x:String>6</x:String>
+                              <x:String>7</x:String>
+                              <x:String>8</x:String>
+                              <x:String>9</x:String>
+                              <x:String>10</x:String>
+                              <x:String>11</x:String>
+                              <x:String>12</x:String>
+                              <x:String>13</x:String>
+                              <x:String>14</x:String>
+                              <x:String>15</x:String>
+                              <x:String>16</x:String>
+                              <x:String>17</x:String>
+                              <x:String>18</x:String>
+                              <x:String>19</x:String>
+                              <x:String>20</x:String>
+                              <x:String>21</x:String>
+                              <x:String>22</x:String>
+                              <x:String>23</x:String>
+                              <x:String>24</x:String>
+                              <x:String>25</x:String>
+                              <x:String>26</x:String>
+                              <x:String>27</x:String>
+                              <x:String>28</x:String>
+                              <x:String>29</x:String>
+                              <x:String>30</x:String>
+                              <x:String>31</x:String>
+                            </scg:List>
+                          </ua:SelectItem.Items>
+                        </ua:SelectItem>
+                        <ua:SelectItem ClippingRegion="{x:Null}" ContinueOnError="{x:Null}" ExistingUiElement="{x:Null}" TimeoutMS="{x:Null}" UseElement="{x:Null}" DesignerSelector="&lt;html title='Sign up - Microsoft account' /&gt;&lt;webctrl id='iBirthYear' tag='SELECT' /&gt;" DisplayName="Select item 'Birth year'" sap:VirtualizedContainerService.HintSize="653,134" InformativeScreenshot="iVBORw0KGgoAAAANSUhEUgAAAScAAABSCAYAAAAWwhKHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG/SURBVHhe7dSxDYBAEANB+m/6ISEjxhvMSNfAWfZ1AIKME5BknIAk4wQkGScgyTgBScYJSDJOQJJxApKME5BknIAk4wQkGScgyTgBScYJSDJOQJJxApKME5BknIAk4wQkGScgyTgBScYJSDJOQJJxKrmeONz2yJBGyVdZ3L9HhjRKFGTH73OkUaIgO36fI40SBdnx+xxplCjIjt/nSKNEQXb8PkcaJQqy4/c50ihRkB2/z5FGiYLs+H2ONEoUZMfvc6RRoiA7fp8jjRIF2fH7HGmUKMiO3+dIo0RBdvw+RxolCrLj9znSKFGQHb/PkUaJguz4fY40ShRkx+9zpFGiIDt+nyONEgXZ8fscaZQoyI7f50ijREF2/D5HGiUKsuP3OdIoUZAdv8+RRomC7Ph9jjRKFGTH73OkUaIgO36fI40SBdnx+xxplCjIjt/nSKNEQXb8PkcaJQqy4/c50ih5C+J2R4Y0Sr7K4v49MqQBJBknIMk4AUnGCUgyTkCScQKSjBOQZJyAJOMEJBknIMk4AUnGCUgyTkCScQKSjBOQZJyAJOMEJBknIMk4AUnGCUgyTkCScQKSjBOQZJyAoHNuGj2fzaVX22cAAAAASUVORK5CYII=" Item="1978" Selector="&lt;webctrl id='iBirthYear' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
+                          <ua:SelectItem.ElementPosition>
+                            <ul:Region Rectangle="296, 83, 95, 32" />
+                          </ua:SelectItem.ElementPosition>
+                          <ua:SelectItem.Items>
+                            <scg:List x:TypeArguments="x:String" Capacity="111">
+                              <x:String>Year</x:String>
+                              <x:String>2014</x:String>
+                              <x:String>2013</x:String>
+                              <x:String>2012</x:String>
+                              <x:String>2011</x:String>
+                              <x:String>2010</x:String>
+                              <x:String>2009</x:String>
+                              <x:String>2008</x:String>
+                              <x:String>2007</x:String>
+                              <x:String>2006</x:String>
+                              <x:String>2005</x:String>
+                              <x:String>2004</x:String>
+                              <x:String>2003</x:String>
+                              <x:String>2002</x:String>
+                              <x:String>2001</x:String>
+                              <x:String>2000</x:String>
+                              <x:String>1999</x:String>
+                              <x:String>1998</x:String>
+                              <x:String>1997</x:String>
+                              <x:String>1996</x:String>
+                              <x:String>1995</x:String>
+                              <x:String>1994</x:String>
+                              <x:String>1993</x:String>
+                              <x:String>1992</x:String>
+                              <x:String>1991</x:String>
+                              <x:String>1990</x:String>
+                              <x:String>1989</x:String>
+                              <x:String>1988</x:String>
+                              <x:String>1987</x:String>
+                              <x:String>1986</x:String>
+                              <x:String>1985</x:String>
+                              <x:String>1984</x:String>
+                              <x:String>1983</x:String>
+                              <x:String>1982</x:String>
+                              <x:String>1981</x:String>
+                              <x:String>1980</x:String>
+                              <x:String>1979</x:String>
+                              <x:String>1978</x:String>
+                              <x:String>1977</x:String>
+                              <x:String>1976</x:String>
+                              <x:String>1975</x:String>
+                              <x:String>1974</x:String>
+                              <x:String>1973</x:String>
+                              <x:String>1972</x:String>
+                              <x:String>1971</x:String>
+                              <x:String>1970</x:String>
+                              <x:String>1969</x:String>
+                              <x:String>1968</x:String>
+                              <x:String>1967</x:String>
+                              <x:String>1966</x:String>
+                              <x:String>1965</x:String>
+                              <x:String>1964</x:String>
+                              <x:String>1963</x:String>
+                              <x:String>1962</x:String>
+                              <x:String>1961</x:String>
+                              <x:String>1960</x:String>
+                              <x:String>1959</x:String>
+                              <x:String>1958</x:String>
+                              <x:String>1957</x:String>
+                              <x:String>1956</x:String>
+                              <x:String>1955</x:String>
+                              <x:String>1954</x:String>
+                              <x:String>1953</x:String>
+                              <x:String>1952</x:String>
+                              <x:String>1951</x:String>
+                              <x:String>1950</x:String>
+                              <x:String>1949</x:String>
+                              <x:String>1948</x:String>
+                              <x:String>1947</x:String>
+                              <x:String>1946</x:String>
+                              <x:String>1945</x:String>
+                              <x:String>1944</x:String>
+                              <x:String>1943</x:String>
+                              <x:String>1942</x:String>
+                              <x:String>1941</x:String>
+                              <x:String>1940</x:String>
+                              <x:String>1939</x:String>
+                              <x:String>1938</x:String>
+                              <x:String>1937</x:String>
+                              <x:String>1936</x:String>
+                              <x:String>1935</x:String>
+                              <x:String>1934</x:String>
+                              <x:String>1933</x:String>
+                              <x:String>1932</x:String>
+                              <x:String>1931</x:String>
+                              <x:String>1930</x:String>
+                              <x:String>1929</x:String>
+                              <x:String>1928</x:String>
+                              <x:String>1927</x:String>
+                              <x:String>1926</x:String>
+                              <x:String>1925</x:String>
+                              <x:String>1924</x:String>
+                              <x:String>1923</x:String>
+                              <x:String>1922</x:String>
+                              <x:String>1921</x:String>
+                              <x:String>1920</x:String>
+                              <x:String>1919</x:String>
+                              <x:String>1918</x:String>
+                              <x:String>1917</x:String>
+                              <x:String>1916</x:String>
+                              <x:String>1915</x:String>
+                              <x:String>1914</x:String>
+                              <x:String>1913</x:String>
+                              <x:String>1912</x:String>
+                              <x:String>1911</x:String>
+                              <x:String>1910</x:String>
+                              <x:String>1909</x:String>
+                              <x:String>1908</x:String>
+                              <x:String>1907</x:String>
+                              <x:String>1906</x:String>
+                              <x:String>1905</x:String>
+                            </scg:List>
+                          </ua:SelectItem.Items>
+                        </ua:SelectItem>
+                        <If Condition="[row(5).ToString = &quot;m&quot;]" sap:VirtualizedContainerService.HintSize="653,241">
+                          <If.Then>
+                            <ua:SelectItem ClippingRegion="{x:Null}" ContinueOnError="{x:Null}" ExistingUiElement="{x:Null}" TimeoutMS="{x:Null}" UseElement="{x:Null}" DesignerSelector="&lt;html title='Sign up - Microsoft account' /&gt;&lt;webctrl id='iGender' tag='SELECT' /&gt;" DisplayName="Select item 'Gender' select-one" sap:VirtualizedContainerService.HintSize="314,134" InformativeScreenshot="iVBORw0KGgoAAAANSUhEUgAAAQUAAABSCAYAAABdasFqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFkSURBVHhe7dSxDcMADMRA77+0ky7hBPriDtAEevB5Af6IAhCiAIQoACEKQIgCEKIAhCgAIQpAiAIQogCEKAAhCkCIAhCiAIQoACEKQIgCEKIAhCgAIQpAiAIQogCEKADxvM+3C85dHzNEwW0cM35RgAv2N0cUuGV/c0SBW/Y3RxS4ZX9zRIFb9jdHFLhlf3NEgVv2N0cUuGV/c0SBW/Y3RxS4ZX9zRIFb9jdHFLhlf3NEgVv2N0cUuGV/c0SBW/Y3RxS4ZX9zRIFb9jdHFLhlf3NEgVv2N0cUuGV/c0SBW/Y3RxS4ZX9zRIFb9jdHFLhlf3NEgVv2N0cUuGV/c0SBW/Y3RxS4ZX9zRIFb9jdHFLhlf3N+UXDu8pghCm7jmOEbQIgCEKIAhCgAIQpAiAIQogCEKAAhCkCIAhCiAIQoACEKQIgCEKIAhCgAIQpAiAIQogCEKAAhCkCIAhCiAIQoAH/e9wP2VjLCUYifugAAAABJRU5ErkJggg==" Item="Male" Selector="&lt;webctrl id='iGender' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
+                              <ua:SelectItem.ElementPosition>
+                                <ul:Region Rectangle="1, 146, 160, 32" />
+                              </ua:SelectItem.ElementPosition>
+                              <ua:SelectItem.Items>
+                                <scg:List x:TypeArguments="x:String" Capacity="4">
+                                  <x:String>Select...</x:String>
+                                  <x:String>Male</x:String>
+                                  <x:String>Female</x:String>
+                                  <x:String>Not specified</x:String>
+                                </scg:List>
+                              </ua:SelectItem.Items>
+                            </ua:SelectItem>
+                          </If.Then>
+                          <If.Else>
+                            <ua:SelectItem ClippingRegion="{x:Null}" ContinueOnError="{x:Null}" ExistingUiElement="{x:Null}" TimeoutMS="{x:Null}" UseElement="{x:Null}" DesignerSelector="&lt;html title='Sign up - Microsoft account' /&gt;&lt;webctrl id='iGender' tag='SELECT' /&gt;" DisplayName="Select item 'Gender' select-one" sap:VirtualizedContainerService.HintSize="314,134" InformativeScreenshot="iVBORw0KGgoAAAANSUhEUgAAAQUAAABSCAYAAABdasFqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFkSURBVHhe7dSxDcMADMRA77+0ky7hBPriDtAEevB5Af6IAhCiAIQoACEKQIgCEKIAhCgAIQpAiAIQogCEKAAhCkCIAhCiAIQoACEKQIgCEKIAhCgAIQpAiAIQogCEKADxvM+3C85dHzNEwW0cM35RgAv2N0cUuGV/c0SBW/Y3RxS4ZX9zRIFb9jdHFLhlf3NEgVv2N0cUuGV/c0SBW/Y3RxS4ZX9zRIFb9jdHFLhlf3NEgVv2N0cUuGV/c0SBW/Y3RxS4ZX9zRIFb9jdHFLhlf3NEgVv2N0cUuGV/c0SBW/Y3RxS4ZX9zRIFb9jdHFLhlf3NEgVv2N0cUuGV/c0SBW/Y3RxS4ZX9zRIFb9jdHFLhlf3N+UXDu8pghCm7jmOEbQIgCEKIAhCgAIQpAiAIQogCEKAAhCkCIAhCiAIQoACEKQIgCEKIAhCgAIQpAiAIQogCEKAAhCkCIAhCiAIQoAH/e9wP2VjLCUYifugAAAABJRU5ErkJggg==" Item="Female" Selector="&lt;webctrl id='iGender' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
+                              <ua:SelectItem.ElementPosition>
+                                <ul:Region Rectangle="1, 146, 160, 32" />
+                              </ua:SelectItem.ElementPosition>
+                              <ua:SelectItem.Items>
+                                <scg:List x:TypeArguments="x:String" Capacity="4">
+                                  <x:String>Select...</x:String>
+                                  <x:String>Male</x:String>
+                                  <x:String>Female</x:String>
+                                  <x:String>Not specified</x:String>
+                                </scg:List>
+                              </ua:SelectItem.Items>
+                            </ua:SelectItem>
+                          </If.Else>
+                        </If>
+                        <ua:Click ClippingRegion="{x:Null}" ContinueOnError="{x:Null}" DelayMS="{x:Null}" DesignerSelector="{x:Null}" ExistingUiElement="{x:Null}" TimeoutMS="{x:Null}" UseElement="{x:Null}" Alt="False" ClickMethod="API" ClickType="CLICK_SINGLE" Ctrl="False" DisplayName="Click 'Create acco...' button" sap:VirtualizedContainerService.HintSize="653,106" InformativeScreenshot="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" MouseButton="BTN_LEFT" OffsetX="0" OffsetY="0" Position="TopLeft" Selector="&lt;webctrl tag='INPUT' type='submit' /&gt;" Shift="False" WaitForReady="COMPLETE" Win="False">
+                          <ua:Click.ElementPosition>
+                            <ul:Region Rectangle="505, 941, 119, 30" />
+                          </ua:Click.ElementPosition>
+                        </ua:Click>
+                        <ua:ClosePage ContinueOnError="{x:Null}" DesignerSelector="{x:Null}" ElementPosition="{x:Null}" ExistingUiBrowser="{x:Null}" InformativeScreenshot="{x:Null}" TimeoutMS="{x:Null}" UseBrowser="{x:Null}" DisplayName="Close Tab" sap:VirtualizedContainerService.HintSize="653,22" />
+                      </Sequence>
+                    </ua:OpenBrowser.Body>
+                  </ua:OpenBrowser>
+                </Sequence>
+              </ActivityAction>
+            </ua:ForEachRow.Body>
+          </ua:ForEachRow>
+        </Sequence>
+      </FlowStep>
+    </Flowchart.StartNode>
+    <x:Reference>__ReferenceID0</x:Reference>
+  </Flowchart>
+</Activity>
