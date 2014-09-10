@@ -40,6 +40,7 @@
   <Flowchart DisplayName="Main" sap:VirtualizedContainerService.HintSize="670,885">
     <Flowchart.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtCity" />
+      <Variable x:TypeArguments="sxl:XDocument" Name="xmlDoc" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -108,17 +109,17 @@
                         <av:PointCollection x:Key="ConnectorLocation">300,395.5 300,464.02</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ua:ForEachRow DataTable="[dtCity]" DisplayName="For each City" sap:VirtualizedContainerService.HintSize="200,51">
+                    <ua:ForEachRow DataTable="[dtCity]" DisplayName="For each City" sap:VirtualizedContainerService.HintSize="388,978">
                       <ua:ForEachRow.Body>
                         <ActivityAction x:TypeArguments="sd:DataRow">
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="308,1642">
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="358,870">
                             <Sequence.Variables>
                               <Variable x:TypeArguments="x:String" Name="City" />
                               <Variable x:TypeArguments="x:String" Name="Country" />
-                              <Variable x:TypeArguments="x:String" Name="Soapclient" />
+                              <Variable x:TypeArguments="x:String" Name="soapClient" />
                               <Variable x:TypeArguments="x:String" Name="inputStringTemp" />
                               <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="matchValueTemp" />
                               <Variable x:TypeArguments="x:String" Name="labelBeforeTemp" />
@@ -133,7 +134,7 @@
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Assign sap:VirtualizedContainerService.HintSize="286,60">
+                            <Assign sap:VirtualizedContainerService.HintSize="336,60">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:String">[City]</OutArgument>
                               </Assign.To>
@@ -141,7 +142,7 @@
                                 <InArgument x:TypeArguments="x:String">[row(0).Tostring]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <Assign sap:VirtualizedContainerService.HintSize="286,60">
+                            <Assign sap:VirtualizedContainerService.HintSize="336,60">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:String">[Country]</OutArgument>
                               </Assign.To>
@@ -149,96 +150,34 @@
                                 <InArgument x:TypeArguments="x:String">[row(1).Tostring]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <Sequence DisplayName="Soap client" sap:VirtualizedContainerService.HintSize="286,1318">
+                            <Sequence DisplayName="Soap client" sap:VirtualizedContainerService.HintSize="336,546">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ua:SoapClient ClientCertificate="{x:Null}" ContinueOnError="{x:Null}" Password="{x:Null}" Username="{x:Null}" ContractName="GlobalWeatherSoap" EndPoint="http://www.webservicex.com/globalweather.asmx?wsdl" sap:VirtualizedContainerService.HintSize="264,22" Method="GetWeather" Result="[Soapclient]" UseWindowsCredentials="False">
+                              <ua:SoapClient ClientCertificate="{x:Null}" ContinueOnError="{x:Null}" Password="{x:Null}" Username="{x:Null}" ContractName="GlobalWeatherSoap" EndPoint="http://www.webservicex.com/globalweather.asmx?wsdl" sap:VirtualizedContainerService.HintSize="314,22" Method="GetWeather" Result="[soapClient]" UseWindowsCredentials="False">
                                 <ua:SoapClient.Parameters>
                                   <InArgument x:TypeArguments="x:String" x:Key="CityName">[City]</InArgument>
                                   <InArgument x:TypeArguments="x:String" x:Key="CountryName">[Country]</InArgument>
                                 </ua:SoapClient.Parameters>
                               </ua:SoapClient>
-                              <Sequence DisplayName="Extract Time" sap:VirtualizedContainerService.HintSize="264,446" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <Assign sap:VirtualizedContainerService.HintSize="242,60">
-                                  <Assign.To>
-                                    <OutArgument x:TypeArguments="x:String">[inputStringTime]</OutArgument>
-                                  </Assign.To>
-                                  <Assign.Value>
-                                    <InArgument x:TypeArguments="x:String">[Soapclient]</InArgument>
-                                  </Assign.Value>
-                                </Assign>
-                                <Assign sap:VirtualizedContainerService.HintSize="242,60">
-                                  <Assign.To>
-                                    <OutArgument x:TypeArguments="x:String">[labelBeforeTime]</OutArgument>
-                                  </Assign.To>
-                                  <Assign.Value>
-                                    <InArgument x:TypeArguments="x:String">&lt;Time&gt;</InArgument>
-                                  </Assign.Value>
-                                </Assign>
-                                <Assign sap:VirtualizedContainerService.HintSize="242,60">
-                                  <Assign.To>
-                                    <OutArgument x:TypeArguments="x:String">[labelAfterTime]</OutArgument>
-                                  </Assign.To>
-                                  <Assign.Value>
-                                    <InArgument x:TypeArguments="x:String">&lt;/Time&gt;</InArgument>
-                                  </Assign.Value>
-                                </Assign>
-                                <ua:Matches DisplayName="Matches - Extract text between two labels" sap:VirtualizedContainerService.HintSize="242,22" Input="[inputStringTime]" Pattern="[&quot;(?&lt;=&quot; + labelBeforeTime + &quot;)(.*?)(?=&quot; + labelAfterTime + &quot;)&quot;]" RegexOption="IgnoreCase, Compiled" Result="[matchValueTime]" />
-                              </Sequence>
-                              <Assign sap:VirtualizedContainerService.HintSize="264,60">
+                              <ua:DeserializeXml ContinueOnError="{x:Null}" DesignerSelector="{x:Null}" ElementPosition="{x:Null}" InformativeScreenshot="{x:Null}" DisplayName="Deserialize xml" sap:VirtualizedContainerService.HintSize="314,59" XMLDocument="[xmlDoc]" XMLString="[soapClient]" />
+                              <WriteLine DisplayName="Write line" sap:VirtualizedContainerService.HintSize="314,61" Text="[xmlDoc.Element(&quot;CurrentWeather&quot;).Element(&quot;Temperature&quot;).Value]" />
+                              <Assign sap:VirtualizedContainerService.HintSize="314,60">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:Object">[row(2)]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="x:String">[matchValueTime(0).Value]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">[xmlDoc.Element("CurrentWeather").Element("Time").Value]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <Sequence DisplayName="Extract Temperature" sad:XamlDebuggerXmlReader.FileName="D:\Projects\Scraping\UiPath\UiPath.Studio\Samples\Programming\String\Extract Text Between Labels.xaml" sap:VirtualizedContainerService.HintSize="264,446" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <Assign sap:VirtualizedContainerService.HintSize="242,60">
-                                  <Assign.To>
-                                    <OutArgument x:TypeArguments="x:String">[inputStringTemp]</OutArgument>
-                                  </Assign.To>
-                                  <Assign.Value>
-                                    <InArgument x:TypeArguments="x:String">[Soapclient]</InArgument>
-                                  </Assign.Value>
-                                </Assign>
-                                <Assign sap:VirtualizedContainerService.HintSize="242,60">
-                                  <Assign.To>
-                                    <OutArgument x:TypeArguments="x:String">[labelBeforeTemp]</OutArgument>
-                                  </Assign.To>
-                                  <Assign.Value>
-                                    <InArgument x:TypeArguments="x:String">&lt;Temperature&gt;</InArgument>
-                                  </Assign.Value>
-                                </Assign>
-                                <Assign sap:VirtualizedContainerService.HintSize="242,60">
-                                  <Assign.To>
-                                    <OutArgument x:TypeArguments="x:String">[labelAfterTemp]</OutArgument>
-                                  </Assign.To>
-                                  <Assign.Value>
-                                    <InArgument x:TypeArguments="x:String">["&lt;/Temperature&gt;"]</InArgument>
-                                  </Assign.Value>
-                                </Assign>
-                                <ua:Matches DisplayName="Matches - Extract text between two labels" sap:VirtualizedContainerService.HintSize="242,22" Input="[inputStringTemp]" Pattern="[&quot;(?&lt;=&quot; + labelBeforeTemp + &quot;)(.*?)(?=&quot; + labelAfterTemp + &quot;)&quot;]" RegexOption="IgnoreCase, Compiled" Result="[matchValueTemp]" />
-                              </Sequence>
-                              <Assign sap:VirtualizedContainerService.HintSize="264,60">
+                              <Assign sap:VirtualizedContainerService.HintSize="314,60">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:Object">[row(3)]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="x:String">[matchValueTemp(0).Value]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">[xmlDoc.Element("CurrentWeather").Element("Temperature").Value]</InArgument>
                                 </Assign.Value>
                               </Assign>
                             </Sequence>
