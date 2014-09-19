@@ -41,10 +41,10 @@
  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <Flowchart DisplayName="Main" sap:VirtualizedContainerService.HintSize="642,754">
     <Flowchart.Variables>
-      <Variable x:TypeArguments="x:String" Name="SourceFolder" />
-      <Variable x:TypeArguments="s:String[]" Name="source" />
-      <Variable x:TypeArguments="x:String" Name="DestinationFolder" />
-      <Variable x:TypeArguments="s:String[]" Name="destination" />
+      <Variable x:TypeArguments="x:String" Name="sourceFolder" />
+      <Variable x:TypeArguments="s:String[]" Name="sourceFileNames" />
+      <Variable x:TypeArguments="x:String" Name="destinationFolder" />
+      <Variable x:TypeArguments="s:String[]" Name="destinationFileNames" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -52,7 +52,7 @@
         <av:Point x:Key="ShapeLocation">240,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,75</av:Size>
         <x:Double x:Key="Height">718.02</x:Double>
-        <av:PointCollection x:Key="ConnectorLocation">270,77.5 270,204.5</av:PointCollection>
+        <av:PointCollection x:Key="ConnectorLocation">270,77.5 270,134.5</av:PointCollection>
         <x:Double x:Key="Width">628.00000000000011</x:Double>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
@@ -60,33 +60,33 @@
       <FlowStep x:Name="__ReferenceID0">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">170,204.5</av:Point>
+            <av:Point x:Key="ShapeLocation">170,134.5</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">270,255.5 270,304.5</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">270,185.5 270,224.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Sequence DisplayName="Select The Folders" sap:VirtualizedContainerService.HintSize="200,51" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces">
+        <Sequence DisplayName="Select the folder" sap:VirtualizedContainerService.HintSize="200,51" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ua:SelectFolder ContinueOnError="{x:Null}" DesignerSelector="{x:Null}" ElementPosition="{x:Null}" InformativeScreenshot="{x:Null}" DisplayName="Select Source Folder" sap:VirtualizedContainerService.HintSize="242,22" SelectedFolder="[SourceFolder]" />
-          <ua:SelectFolder ContinueOnError="{x:Null}" DesignerSelector="{x:Null}" ElementPosition="{x:Null}" InformativeScreenshot="{x:Null}" DisplayName="Select Destination Folder" sap:VirtualizedContainerService.HintSize="242,22" SelectedFolder="[DestinationFolder]" />
+          <ua:SelectFolder ContinueOnError="{x:Null}" DesignerSelector="{x:Null}" ElementPosition="{x:Null}" InformativeScreenshot="{x:Null}" DisplayName="Select Source Folder" sap:VirtualizedContainerService.HintSize="242,22" SelectedFolder="[sourceFolder]" />
+          <ua:SelectFolder ContinueOnError="{x:Null}" DesignerSelector="{x:Null}" ElementPosition="{x:Null}" InformativeScreenshot="{x:Null}" DisplayName="Select Destination Folder" sap:VirtualizedContainerService.HintSize="242,22" SelectedFolder="[destinationFolder]" />
           <Assign sap:VirtualizedContainerService.HintSize="242,60">
             <Assign.To>
-              <OutArgument x:TypeArguments="s:String[]">[source]</OutArgument>
+              <OutArgument x:TypeArguments="s:String[]">[sourceFileNames]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(SourceFolder)]</InArgument>
+              <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(sourceFolder)]</InArgument>
             </Assign.Value>
           </Assign>
           <Assign sap:VirtualizedContainerService.HintSize="242,60">
             <Assign.To>
-              <OutArgument x:TypeArguments="s:String[]">[destination]</OutArgument>
+              <OutArgument x:TypeArguments="s:String[]">[destinationFileNames]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(DestinationFolder)]</InArgument>
+              <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(destinationFolder)]</InArgument>
             </Assign.Value>
           </Assign>
         </Sequence>
@@ -94,18 +94,18 @@
           <FlowStep x:Name="__ReferenceID1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <av:Point x:Key="ShapeLocation">170,304.5</av:Point>
+                <av:Point x:Key="ShapeLocation">170,224.5</av:Point>
                 <av:Size x:Key="ShapeSize">200,51</av:Size>
-                <av:PointCollection x:Key="ConnectorLocation">270,355.5 270,414.5</av:PointCollection>
+                <av:PointCollection x:Key="ConnectorLocation">270,275.5 270,324.5</av:PointCollection>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="For Each File in Destination Folder" sap:VirtualizedContainerService.HintSize="200,51" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces">
+            <Sequence DisplayName="Remove files that are not in source folder" sap:VirtualizedContainerService.HintSize="200,51" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ua:ForEach x:TypeArguments="x:String" DisplayName="For each file from source" sap:VirtualizedContainerService.HintSize="516,484" Values="[source]">
+              <ua:ForEach x:TypeArguments="x:String" DisplayName="For each file from source" sap:VirtualizedContainerService.HintSize="516,484" Values="[sourceFileNames]">
                 <ActivityAction x:TypeArguments="x:String">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:String" Name="file" />
@@ -133,7 +133,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <If Condition="[destination.Contains(]" sap:VirtualizedContainerService.HintSize="711,438">
+                          <If Condition="[destinationFileNames.Contains(]" sap:VirtualizedContainerService.HintSize="711,438">
                             <If.Then>
                               <Sequence sap:VirtualizedContainerService.HintSize="486,331">
                                 <sap:WorkflowViewStateService.ViewState>
@@ -143,13 +143,13 @@
                                 </sap:WorkflowViewStateService.ViewState>
                                 <If Condition="[DateTime.Compare(File.GetCreationTime(fileS),File.GetCreationTime(FileD)) &gt; 0]" sap:VirtualizedContainerService.HintSize="464,207">
                                   <If.Then>
-                                    <ua:CopyFile ContinueOnError="{x:Null}" Destination="[DestinationFolder]" DisplayName="Copy file" sap:VirtualizedContainerService.HintSize="200,22" Path="[this]" />
+                                    <ua:CopyFile ContinueOnError="{x:Null}" Destination="[destinationFolder]" DisplayName="Copy file" sap:VirtualizedContainerService.HintSize="200,22" Path="[this]" />
                                   </If.Then>
                                 </If>
                               </Sequence>
                             </If.Then>
                             <If.Else>
-                              <ua:CopyFile ContinueOnError="{x:Null}" Destination="[DestinationFolder]" DisplayName="Copy file" sap:VirtualizedContainerService.HintSize="200,22" Path="[this]" />
+                              <ua:CopyFile ContinueOnError="{x:Null}" Destination="[destinationFolder]" DisplayName="Copy file" sap:VirtualizedContainerService.HintSize="200,22" Path="[this]" />
                             </If.Else>
                           </If>
                         </Sequence>
@@ -164,12 +164,15 @@
                   </Sequence>
                 </ActivityAction>
               </ua:ForEach>
-              <ua:ForEach x:TypeArguments="x:String" DisplayName="For each file from destination" sap:VirtualizedContainerService.HintSize="516,540" Values="[destination]">
+              <ua:ForEach x:TypeArguments="x:String" DisplayName="For each file from destination" sap:VirtualizedContainerService.HintSize="516,540" Values="[destinationFileNames]">
                 <ActivityAction x:TypeArguments="x:String">
                   <ActivityAction.Argument>
-                    <DelegateInArgument x:TypeArguments="x:String" Name="items" />
+                    <DelegateInArgument x:TypeArguments="x:String" Name="item" />
                   </ActivityAction.Argument>
                   <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="486,432">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="si:FileInfo" Name="fInfo1" />
+                    </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -177,15 +180,15 @@
                     </sap:WorkflowViewStateService.ViewState>
                     <Assign sap:VirtualizedContainerService.HintSize="464,60">
                       <Assign.To>
-                        <OutArgument x:TypeArguments="x:String">[items]</OutArgument>
+                        <OutArgument x:TypeArguments="x:String">[item]</OutArgument>
                       </Assign.To>
                       <Assign.Value>
-                        <InArgument x:TypeArguments="x:String">[items.Remove(0,DestinationFolder.Count)]</InArgument>
+                        <InArgument x:TypeArguments="x:String">[item.Remove(0,DestinationFolder.Count)]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <If Condition="[source.Contains(items)]" sap:VirtualizedContainerService.HintSize="464,208">
+                    <If Condition="[sourceFileNames.Contains(item)]" sap:VirtualizedContainerService.HintSize="464,208">
                       <If.Else>
-                        <ua:Delete ContinueOnError="{x:Null}" DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="200,22" Path="[DestinationFolder + items]" Recurse="False" />
+                        <ua:Delete ContinueOnError="{x:Null}" DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="200,22" Path="[destinationFolder + item]" Recurse="False" />
                       </If.Else>
                     </If>
                   </Sequence>
@@ -196,14 +199,14 @@
               <FlowStep x:Name="__ReferenceID2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <av:Point x:Key="ShapeLocation">170,414.5</av:Point>
+                    <av:Point x:Key="ShapeLocation">170,324.5</av:Point>
                     <av:Size x:Key="ShapeSize">200,51</av:Size>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ua:ForEach x:TypeArguments="x:String" DisplayName="For each file from source" sap:VirtualizedContainerService.HintSize="763,772" Values="[source]">
+                <ua:ForEach x:TypeArguments="x:String" DisplayName="Copy modified files" sap:VirtualizedContainerService.HintSize="763,772" Values="[sourceFileNames]">
                   <ActivityAction x:TypeArguments="x:String">
                     <ActivityAction.Argument>
-                      <DelegateInArgument x:TypeArguments="x:String" Name="file" />
+                      <DelegateInArgument x:TypeArguments="x:String" Name="fileName" />
                     </ActivityAction.Argument>
                     <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="733,664">
                       <sap:WorkflowViewStateService.ViewState>
@@ -211,7 +214,7 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <If Condition="[destination.Contains(file)]" sap:VirtualizedContainerService.HintSize="711,540">
+                      <If Condition="[destinationFileNames.Contains(fileName)]" sap:VirtualizedContainerService.HintSize="711,540">
                         <If.Then>
                           <Sequence sap:VirtualizedContainerService.HintSize="486,432">
                             <Sequence.Variables>
@@ -225,21 +228,21 @@
                             </sap:WorkflowViewStateService.ViewState>
                             <Assign sap:VirtualizedContainerService.HintSize="464,60">
                               <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[file]</OutArgument>
+                                <OutArgument x:TypeArguments="x:String">[fileName]</OutArgument>
                               </Assign.To>
                               <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">[file.Remove(0,SourceFolder.Count)]</InArgument>
+                                <InArgument x:TypeArguments="x:String">[fileName.Remove(0,SourceFolder.Count)]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <If Condition="[DateTime.Compare(System.IO.File.GetCreationTime(SourceFolder + file),System.IO.File.GetCreationTime(DestinationFolder + file))  &gt; 0]" sap:VirtualizedContainerService.HintSize="464,208">
+                            <If Condition="[DateTime.Compare(System.IO.File.GetCreationTime(sourceFolder + fileName),System.IO.File.GetCreationTime(destinationFolder + fileName))  &gt; 0]" sap:VirtualizedContainerService.HintSize="464,208">
                               <If.Then>
-                                <ua:CopyFile ContinueOnError="{x:Null}" Destination="[DestinationFolder]" DisplayName="Copy file" sap:VirtualizedContainerService.HintSize="200,22" Path="[file]" />
+                                <ua:CopyFile ContinueOnError="{x:Null}" Destination="[destinationFolder]" DisplayName="Copy file" sap:VirtualizedContainerService.HintSize="200,22" Path="[fileName]" />
                               </If.Then>
                             </If>
                           </Sequence>
                         </If.Then>
                         <If.Else>
-                          <ua:CopyFile ContinueOnError="{x:Null}" Destination="[DestinationFolder]" sap:VirtualizedContainerService.HintSize="200,22" Path="[file]" />
+                          <ua:CopyFile ContinueOnError="{x:Null}" Destination="[destinationFolder]" sap:VirtualizedContainerService.HintSize="200,22" Path="[fileName]" />
                         </If.Else>
                       </If>
                     </Sequence>
